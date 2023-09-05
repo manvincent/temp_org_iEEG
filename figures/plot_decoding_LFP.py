@@ -205,14 +205,3 @@ for eff in effects:
     ax.set_xlabel('Time since onset [sec]')
     # fig.savefig(f'{outDir}/{currEff}_decode_LFP_latency.svg', format="svg")
     
-
-# sig_period_ROI[3] = sig_period_ROI[3][sig_period_ROI[3] > 0.32]    
-    
-# for i in np.arange(1,len(sig_period_ROI)):
-#     print(f'{names_ROI[i-1]} to {names_ROI[i]}')
-#     print(mannwhitneyu(sig_period_ROI[i], sig_period_ROI[i-1], alternative='greater', method='exact'))
-
-# for i in np.arange(len(sig_period_ROI)):
-#     print(names_ROI[i])
-#     print(np.round(sig_period_ROI[i].min(),3))
-#     print(np.round(sig_period_ROI[i].max(),3))        
