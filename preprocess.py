@@ -14,26 +14,31 @@ import pandas as pd
 import multiprocessing
 num_cores = 32 #multiprocessing.cpu_count()
 import os
-# homeDir = '/export/home/vman/iowa/ephys'
-homeDir = '/home/vman/Documents/iowa_lfp'
-os.chdir(f'{homeDir}/Analysis/Code')
+homeDir = 'path to project home directory'
 from functions import *
 
 # Specify where the data are
-datDir =  f'{homeDir}/Analysis/Data_unfiltered'
+datDir = 'path to data directory containting output from convert_ncs2mne.py'
 # Specify output folder for data
-outDir = f'{homeDir}/Analysis/Data_preprocessed'
+outDir = 'output directory e.g. ./Data_preprocessed'
 if not os.path.exists(outDir):
     os.makedirs(outDir)
 
 
 ## Specify subjects and blocks
-# subList = np.unique([i.split('_')[1] for i in next(os.walk(datDir))[1]])
-subList = ['567']
+subList = np.unique([i.split('_')[1] for i in next(os.walk(datDir))[1]])
 
-# Some subIDs are repeated because they have multiple blocks of data
-# blockList = np.array([['031'],['037','038'],['043'],['043','044'],['001','003'],['001','002'],['044','046'],['060','063']],dtype=object)
-blockList = np.array([['095']],dtype=object)
+blockList = 'block IDs for each subject' 
+# e.g. blockList = np.array([['031'],
+#                       ['037','038'],
+#                       ['043'],
+#                       ['043','044'],
+#                       ['001','003'],
+#                       ['001','002'],
+#                       ['044','046'],
+#                       ['060','063'],
+#                       ['095'],
+#                       ['122']],dtype=object)
 
 # Specify the task-start and task-stop event codes
 taskStart_code  = 5

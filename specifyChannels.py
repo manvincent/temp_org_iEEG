@@ -15,19 +15,19 @@ Outputs subject-specific updated channel coordinates and GM/WM information
 import numpy as np
 import pandas as pd
 import os
-homeDir = '/media/Data/Projects/iowa_lfp'
-os.chdir(f'{homeDir}/Analysis/Code')
+homeDir = 'path to project home directory'
 from functions import *
 
 # Specify where the data are
-datDir = f'{homeDir}/Anatomy/anatomicalData/contactData'
+anatDir = 'path to contact data directory'
 
 # Process template image
-template = f'{homeDir}/Anatomy/anatomicalData/Template/CIT168_T1w_700um_MNI.nii.gz'
-templateMask = f'{homeDir}/Anatomy/anatomicalData/Template/CIT_mask.nii.gz'
+template = 'path to template e.g. ./CIT168_T1w_700um_MNI.nii.gz'
+templateMask = 'path to binary mask of template' 
 
 # Specify whether to use all channels or only grey matter
 chanType = 'GM' # Can be 'all' or 'GM'
+
 ## Specify subjects and blocks
 subList = np.unique([i.split('_')[0] for i in next(os.walk(datDir))[2]])
 

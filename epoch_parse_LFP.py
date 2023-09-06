@@ -3,7 +3,7 @@
 """
 Created on Mon Nov  2 12:35:03 2020
 
-Load in preprocessed data (LFP, non-decomposed signal) and parse into epochs.
+Load in preprocessed data (LFP, non-decomposed signal) and parse into epochs, with baseline normalisation.
 Save the Epoch (mne-type) files for each subject/block
 All trial events (event codes) are embedded into a single structure
 
@@ -16,36 +16,35 @@ import numpy as np
 import pandas as pd
 import time
 import os
-# homeDir = '/export/home/vman/iowa/ephys'
-homeDir = '/media/Data/Projects/iowa_lfp'
+homeDir = 'path to project home directory'
 os.chdir(f'{homeDir}/Analysis/Code')
 from functions import *
 
 # Specify where the data are
-datDir =   f'{homeDir}/Analysis/Data_preprocessed'
+datDir = 'path to data directory containting output from preprocess.py'
 # Specify output folder for data
-outDir =  f'{homeDir}/Analysis/Data_LFP_BN'
+outDir = 'output directory e.g. ./Data_LFP'
 if not os.path.exists(outDir):
     os.makedirs(outDir)
 
 ## Specify subjects and blocks
 subList = np.unique([i.split('_')[1] for i in next(os.walk(datDir))[1]])
 
-# Some subIDs are repeated because they have multiple blocks of data
-blockList = np.array([['031'],
-                      ['037','038'],
-                      ['043'],
-                      ['043','044'],
-                      ['001','003'],
-                      ['001','002'],
-                      ['044','046'],
-                      ['060','063'],
-                      ['095'],
-                      ['122']],dtype=object)
+blockList = 'block IDs for each subject' 
+# e.g. blockList = np.array([['031'],
+#                       ['037','038'],
+#                       ['043'],
+#                       ['043','044'],
+#                       ['001','003'],
+#                       ['001','002'],
+#                       ['044','046'],
+#                       ['060','063'],
+#                       ['095'],
+#                       ['122']],dtype=object)
 
 # Specify epoching parameters here:
-tmin = 0.8
-tmax = 1.5 # extent of epoch window (sec)
+tmin = 0.2
+tmax = 0.5 # extent of epoch window (sec)
 
 # Create legend of event IDs
 event_id = {'GuessOn': 9,

@@ -13,15 +13,14 @@ import pandas as pd
 import multiprocessing
 num_cores = multiprocessing.cpu_count()
 import os
-homeDir = '/home/vman/Documents/iowa_lfp'
-os.chdir(homeDir + os.sep + 'Analysis/Code')
+homeDir = 'path to project home directory'
 from functions import *
 
 # Specify where the data aref
-datDir =  homeDir + os.sep + 'Analysis' + os.sep + 'Data_raw'
-anatDir = f'{homeDir}/iowa_ephys/anatomicalData/contactData'
+datDir = 'path to data directory containting raw data in per-sub subdirectories'
+anatDir = 'path to contact data directory'
 # Specify output folder for data
-outDir = homeDir + os.sep + 'Analysis' + os.sep + 'Data_unfiltered'
+outDir = 'output directory e.g. ./Data_unfiltered'
 if not os.path.exists(outDir):
     os.makedirs(outDir)
 
@@ -29,8 +28,8 @@ if not os.path.exists(outDir):
 ## Specify subjects and blocks
 subList = np.unique([i.split('_')[1] for i in next(os.walk(datDir))[1]])
 
-# Some subIDs are repeated because they have multiple blocks of data
-blockList = np.array([['031'],['037','038'],['043'],['043','044'],['001','003'],['001','002'],['044','046'],['060','063']],dtype=object)
+blockList = 'block IDs for each subject' 
+# e.g. np.array([['031'],['037','038'],['043'],['043','044'],['001','003'],['001','002'],['044','046'],['060','063']],dtype=object)
 
 
 

@@ -10,33 +10,30 @@ Created on Mon Oct 12 22:18:53 2020
 import numpy as np
 import pandas as pd
 import os
-homeDir = '/media/Data/Projects/iowa_lfp'
-os.chdir(f'{homeDir}/Analysis/Code')
+homeDir = 'path to project home directory'
 from functions_stats import *
 
-
-
 # Specify where the data are
-datDir =  f'{homeDir}/Analysis/Data_LFP_BN'
-outDir = f'{homeDir}/Analysis/Design'
+datDir = 'path to data directory containting output from epoch_parse_LFP.py'
+# Specify output folder 
+outDir = 'output directory e.g. ./Design'
 if not os.path.exists(outDir):
     os.makedirs(outDir)
 
 ## Specify subjects and blocks
 subList = np.unique([i.split('_')[1] for i in next(os.walk(datDir))[1]])
-# subList = ['567','585']
 
-# Some subIDs are repeated because they have multiple blocks of data
-blockList = np.array([['031'],
-                      ['037','038'],
-                      ['043'],
-                      ['043','044'],
-                      ['001','003'],
-                      ['001','002'],
-                      ['044','046'],
-                      ['060','063'],
-                      ['095'],
-                      ['122']],dtype=object)
+blockList = 'block IDs for each subject' 
+# blockList = np.array([['031'],
+#                       ['037','038'],
+#                       ['043'],
+#                       ['043','044'],
+#                       ['001','003'],
+#                       ['001','002'],
+#                       ['044','046'],
+#                       ['060','063'],
+#                       ['095'],
+#                       ['122']],dtype=object)
 
 
 # Code legends
