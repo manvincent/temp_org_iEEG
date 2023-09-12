@@ -15,7 +15,6 @@ Scripts for parsing / epoching data
 # Statistical modelling  
 3.1) glm_setup_design.py  
 
-
 ## Plotting code
 Scripts for plotting 
 ### Channel localisation
