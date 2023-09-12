@@ -12,7 +12,7 @@ import numpy as np
 from copy import deepcopy as dcopy
 import pandas as pd
 import multiprocessing
-num_cores = 32 #multiprocessing.cpu_count()
+num_cores = multiprocessing.cpu_count()
 import os
 homeDir = 'path to project home directory'
 from functions import *
