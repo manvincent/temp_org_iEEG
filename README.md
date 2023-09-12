@@ -6,7 +6,20 @@ Scripts with the same number can be done in either order, but letter indicates p
 1.1) convert_ncs2mne.py  
 1.2) preprocess.py  
 1.3) specifyChannels.py  
-1.4) plotChannels.py (nipype)  
-1.5) plot_nodes.py
-1.5.1) plot_nodes_encoding.py # Goes into final figure
-1.5.2) plot_nodes_decoding.py # Goes into final figure
+
+## 2.Data wrangling  
+Scripts for parsing / epoching data  
+### 2.1.LFP  
+2.1) epoch_parse_LFP.py  
+
+# Statistical modelling  
+3.1) glm_setup_design.py  
+
+
+## Plotting code
+Scripts for plotting 
+### Channel localisation
+plot_nodes.py
+plot_nodes_decoding.py # Goes into final figure
+plot_model_revised.py
+
