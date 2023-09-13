@@ -5,7 +5,8 @@ Scripts with the same number can be done in either order, but letter indicates p
 ## 1.Formating and preprocessing  
 1.1) convert_ncs2mne.py  
 1.2) preprocess.py  
-1.3) specifyChannels.py  
+1.3) specifyChannels.py
+1.4) ROI_chan_parse.py 
 
 ## 2.Data wrangling  
 Scripts for parsing / epoching data  

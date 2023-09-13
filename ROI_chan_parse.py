@@ -15,10 +15,10 @@ if not os.path.exists(chanDir):
     os.makedirs(chanDir)
 
 # Specify where template/atlas data are
-anatDir = f'{homeDir}/Anatomy/anatomicalData/Template'
-coordPath = f'{homeDir}/Anatomy/anatomicalData/contactData'
-cortMask = f'{anatDir}/cortical_atlases.nii.gz'
-subcortMask = f'{anatDir}/subcortical_atlases.nii.gz'
+anatDir = 'path to directory holding template images' 
+coordPath = 'path to directory containing contact coordinate csv files' 
+cortMask = 'path to cortical ROI atlas (should be in same space as template e.g. CIT 0.7mm)' 
+subcortMask = 'path to subcortical ROI atlas'
 
 ## Specify subjects and blocks
 subList = np.unique([i.split('_')[1] for i in next(os.walk(datDir))[1]])
