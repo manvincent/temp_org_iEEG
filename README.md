@@ -15,6 +15,7 @@ Scripts for parsing / epoching data
 
 # Statistical modelling  
 3.1) glm_setup_design.py  
+3.x) pval_fdr.py # Outputs statistics tables for neural results
 
 # Behavioural analysis
 4.1) inferBehav_ephys.py
