@@ -25,3 +25,6 @@ plot_nodes.py
 plot_nodes_decoding.py # Feature importance topoplot
 plot_model_revised.py
 
+### Statistical results
+plot_decode_CI.py # Also outputs supplementary table
+
