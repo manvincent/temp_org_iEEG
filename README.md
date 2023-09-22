@@ -22,7 +22,7 @@ Scripts for parsing / epoching data
 ## Plotting code
 Scripts for plotting 
 ### Channel localisation
-plot_nodes.py
+plot_nodes_coords.py
 plot_nodes_decoding.py # Feature importance topoplot
 plot_model_revised.py
 
