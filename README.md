@@ -10,15 +10,20 @@ Scripts with the same number can be done in either order, but letter indicates p
 
 ## 2.Data wrangling  
 Scripts for parsing / epoching data  
-### 2.1.LFP  
 2.1) epoch_parse_LFP.py  
 
 # Statistical modelling  
 3.1) glm_setup_design.py  
-3.x) pval_fdr.py # Outputs statistics tables for neural results
+
+## Decoding analysis
+3.2) decode_logit_LFP.py ***
+3.3) decode_generalize_logit_LFP.py ***
+3.4) decode_linear_LFP.py ***
+
 
 # Behavioural analysis
 4.1) inferBehav_ephys.py
+
 ## Plotting code
 Scripts for plotting 
 ### Channel localisation
@@ -27,5 +32,6 @@ plot_nodes_decoding.py # Feature importance topoplot
 plot_model_revised.py
 
 ### Statistical results
+plot_decode_LFP.py ***
 plot_decode_CI.py # Also outputs supplementary table
 
