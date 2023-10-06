@@ -1,5 +1,9 @@
 # iEEG scripts for "Temporal organized..."
 
+# Task code
+Code to run the risk task are all in ./TaskCode  
+(requires Matlab and PTB3)
+
 # Behavioural analysis
 behaviour.py  
 riskModel.py  
