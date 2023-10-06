@@ -5,7 +5,7 @@ Code to run the risk task are all in ./TaskCode
 (requires Matlab and PTB3)
 
 # Behavioural analysis
-parseBehav.py # convert .mat to .csv 
+parseBehav.py # convert .mat to .csv  
 behaviour.py  
 riskModel.py  
 
@@ -23,6 +23,7 @@ utilities.py
 ## Functions_stats
 design_functions.py  
 decode_functions.py  
+generalize_functions.py  
 regression_functions.py # adapted from https://gist.github.com/brentp/5355925  
 
 ## Figures 

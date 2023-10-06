@@ -11,15 +11,12 @@ from copy import deepcopy as dcopy
 from joblib import Parallel, delayed
 import multiprocessing
 num_cores = multiprocessing.cpu_count()
+from mne.decoding import SlidingEstimator
 from scipy.stats import sem
 from skimage import measure
-from sklearn.metrics import roc_auc_score, accuracy_score, r2_score, mean_squared_error
-from sklearn.feature_selection import SelectFromModel
-from mne.decoding import (SlidingEstimator, GeneralizingEstimator,
-                          LinearModel, get_coef)
+from sklearn.metrics import roc_auc_score, accuracy_score, mean_squared_error, make_scorer
 from sklearn.base import TransformerMixin
 from sklearn.preprocessing import StandardScaler, RobustScaler
-from sklearn.metrics import make_scorer, accuracy_score
 
 
 def orthogonalize(orth_against_reg, orth_to_reg, curr_design):
@@ -380,7 +377,7 @@ class DecodeModel(object):
             feature_acc[f], _ = self.CV_test(left_out_X_folds, self.y_folds)
 
         return feature_acc
-
+    
 
 # Modified from https://stackoverflow.com/questions/50125844/how-to-standard-scale-a-3d-matrix by Kilian Batzner
 class NDScaler(TransformerMixin):
