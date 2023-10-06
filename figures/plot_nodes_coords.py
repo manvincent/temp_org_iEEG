@@ -17,23 +17,13 @@ from matplotlib import pyplot as plt
 matplotlib.rcParams['xtick.labelsize'] = plt.rcParams['ytick.labelsize'] = plt.rcParams['axes.labelsize'] = 10
 
 import os
-homeDir = '/media/Data/Projects/iowa_lfp'
-anatDir = f'{homeDir}/Analysis/Chan_Info'
-outDir = '/home/vman/Dropbox/PostDoctoral/Projects/iowa/risk/Manuscript/Figures_Materials'
+homeDir = 'path to home folder' 
+anatDir = 'path to channel information'
+outDir = 'specify output dir'
 
 
 # Specify ROIs of interest
-ROIlist = ['Frontal Pole',
-           'Subcallosal Cortex',
-           'Frontal Orbital Cortex',
-           'Cingulate Gyrus',
-           'Supramarginal Gyrus',
-           'Angular Gyrus',
-           'Putamen',
-           'Hippocampus',
-           'Amygdala',
-           'Anterior Insular Cortex',
-           'Posterior Insular Cortex']
+ROIlist = 'list or ROIs to plot'
 
 # Load in subject contact location data
 group_chanData = [] 
@@ -41,11 +31,11 @@ group_bipolarData = []
 
 for ROI in ROIlist: 
     # Load in raw contact locations 
-    ROI_chanData = pd.read_csv(f'{anatDir}/{ROI}_concat_coordDF.csv')
+    ROI_chanData = pd.read_csv('path to coordinate csv')
     ROI_chanData['Patient Idx'] = ROI_chanData['Patient Idx']+1
     
     # Load in bipolar contact locations 
-    ROI_BP = pd.read_csv(f'{anatDir}/{ROI}_concat_chanDF.csv')
+    ROI_BP = pd.read_csv('path to bipolar source location csv')
     ROI_BP['subIdx'] = ROI_BP['subIdx'] + 1
     
     # Append to group 

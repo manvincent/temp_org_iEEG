@@ -13,6 +13,7 @@ class LinearRegression(linear_model.LinearRegression):
     """
     LinearRegression class after sklearn's, but calculate t-statistics for model coefficients (betas).
     Adapted from: https://gist.github.com/brentp/5355925
+    Adapted for 3D data 
     """
 
     def __init__(self, fit_intercept=False):        

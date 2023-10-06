@@ -100,12 +100,12 @@ for eff, eff_ROI in effects.items():
     eff_ROIdata= [] 
     for ROIidx, ROI in enumerate(eff_ROI[0]): 
         # Load in ROI (group averaged) contact locations 
-        ROI_chanData = pd.read_csv(f'{roiAnatDir}/{ROI}/{ROI}_concat_chanDF.csv')
+        ROI_chanData = pd.read_csv('path to coordinate csv for ROI')
         ROI_chanData['ROIidx'] = ROIidx+1
         ROI_chanData['ROI'] = ROI 
         # Load in feature importance     
-        weights = np.load(f'{roiFeatDir}/{ROI}/{ROI}_{eff}_feature_importance.npy')
-        acc_masked = np.load(f'{roiAnatDir}/{ROI}/{ROI}_clust_{eff}_acc_masked.npy')        
+        weights = np.load('path to feature importance results ')
+        acc_masked = np.load('path to statistical test results') # To identify periods of significance
         # Get average weights during significant period
         weight_sig = np.mean(weights[:,np.where(acc_masked > 0.5)[0]], axis=1)
         # Get positive weights
@@ -116,8 +116,6 @@ for eff, eff_ROI in effects.items():
     # Create all coordinates across ROIs 
     eff_ROIdf = pd.concat(eff_ROIdata)
     
-    # Remove contacts that did not contribute to decoding (weight < 0)
-    # eff_ROIdf.dropna(inplace=True)
     
     values = np.array(eff_ROIdf.feature_weights)
     coords = np.array(eff_ROIdf.iloc[:,2:5])

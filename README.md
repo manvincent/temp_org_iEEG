@@ -1,37 +1,27 @@
-# iEEG / ECoG Scripts  
-Scripts are ordered by sequence  
-Scripts with the same number can be done in either order, but letter indicates preferred sequence   
-
-## 1.Formating and preprocessing  
-1.1) convert_ncs2mne.py  
-1.2) preprocess.py  
-1.3) specifyChannels.py
-1.4) ROI_chan_parse.py 
-
-## 2.Data wrangling  
-Scripts for parsing / epoching data  
-2.1) epoch_parse_LFP.py  
-
-# Statistical modelling  
-3.1) glm_setup_design.py  
-
-## Decoding analysis
-3.2) decode_logit_LFP.py ***
-3.3) decode_generalize_logit_LFP.py ***
-3.4) decode_linear_LFP.py ***
-
+# iEEG scripts for "Temporal organized..."
 
 # Behavioural analysis
-4.1) inferBehav_ephys.py
+behaviour.py
+riskModel.py
 
-## Plotting code
-Scripts for plotting 
-### Channel localisation
+# Neural processing
+preprocess.py  
+
+## Functions 
+neuralynx_io.py # ported from https://github.com/alafuzof/NeuralynxIO
+channel_functions.py
+epoch_functions.py
+input_function.py 
+preprocess_functions.py
+utilities.py 
+
+## Functions_stats
+design_functions.py
+decode_functions.py
+regression_functions.py # adapted from https://gist.github.com/brentp/5355925
+
+## Figures 
+plot_model_revised.py
 plot_nodes_coords.py
 plot_nodes_decoding.py # Feature importance topoplot
-plot_model_revised.py
-
-### Statistical results
-plot_decode_LFP.py ***
-plot_decode_CI.py # Also outputs supplementary table
 

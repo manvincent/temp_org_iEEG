@@ -9,7 +9,7 @@ Created on Mon Jan 28 14:07:17 2019
 import mne
 import numpy as np
 import multiprocessing
-num_cores = 7 #multiprocessing.cpu_count()
+num_cores = multiprocessing.cpu_count()
 from scipy.stats import entropy  
 from matplotlib import pyplot as plt
   
