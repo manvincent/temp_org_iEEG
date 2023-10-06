@@ -54,11 +54,11 @@ for subIdx, subID in enumerate(subList):
         os.makedirs(subOutDir)
 
     # Load in subject's channel info
-    chansPath = f'{subDir}/patient{subID}_chan_info.pkl'
+    chansPath = 'path to channel info *_chan_info.pk' 
     subChanDF = pd.read_pickle(chansPath).sort_values('Contact').reset_index(drop=True)
 
     # Load in bipolar channel mapping
-    bipolarPath = f'{homeDir}/iowa_ephys/anatomicalData/contactData/{subID}_contact_locations_bipolar.csv'
+    bipolarPath = 'path to bipolar contact location info' 
     bipolarChanDF = pd.read_csv(bipolarPath).sort_values('Contact').reset_index(drop=True)
 
 
