@@ -27,7 +27,8 @@ generalize_functions.py
 regression_functions.py # adapted from https://gist.github.com/brentp/5355925  
 
 ## Figures 
-plot_model_revised.py  
+plot_model_revised.py 
+plot_num_contacts.py 
 plot_nodes_coords.py  
 plot_nodes_decoding.py # Feature importance topoplot  
 
