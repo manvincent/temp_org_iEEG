@@ -135,16 +135,17 @@ display(res)
 
 
 #%% Plotting report accuracy 
-fig, ax = plt.subplots(figsize=(3,3), dpi=500)
+fig, ax = plt.subplots(figsize=(2,2), dpi=500)
 # Plot ephys group
-ax.bar(x=0, height=mean_acc, 
-          edgecolor='black', color='none', width=0.1, linewidth=3)
-ax.errorbar(x=0, y = mean_acc, yerr=sem_acc , c='black')
-ax.scatter(x=np.ones(len(group_reportAcc)) * 0.01, y=group_reportAcc, color='blue', s=8, alpha=0.5)
+# Draw 
+ax.scatter(x=np.ones(len(group_reportAcc)) * 0.05, y=group_reportAcc, color='blue', s=8, alpha=0.5)
+ax.boxplot(group_reportAcc, positions=[-0.05], 
+           widths=0.05, showfliers=True, 
+           boxprops=dict(color='black'),
+           medianprops = dict(color='red'))
 
 ax.set_xticks([]); 
-ax.set_ylim([80,103])
-ax.set_xlim([-0.1, 0.1])
+ax.set_xlim([-0.2, 0.2])
 ax.set_ylabel('Accuracy')
 
 # fig.savefig('fig1_reportacc.svg')
@@ -229,25 +230,29 @@ loss_DF = perSub_meanDF[perSub_meanDF.prevTrialOut_L1 == -1]
 win_DF = perSub_meanDF[perSub_meanDF.prevTrialOut_L1 == 1]
 
 #%% Plotting stay/switch as a function of previous outcome
-fig, ax = plt.subplots(figsize=(3,3), dpi=500)
-ax.bar(x=-0.1, height=np.mean(loss_DF.switch), 
-          edgecolor='black', color='none', width=0.1, linewidth=3, label='loss')
-ax.errorbar(x=-0.1, y = np.mean(loss_DF.switch), yerr=stats.sem(loss_DF.switch), c='black')
-ax.scatter(x=np.ones(len(loss_DF)) * -0.09, y=loss_DF.switch, color='blue', s=8, alpha=0.5)
-          
-ax.bar(x=0, height=np.mean(win_DF.switch), 
-          edgecolor='black', color='grey', width=0.1, linewidth=3, label='win')
-ax.errorbar(x=0, y = np.mean(win_DF.switch), yerr=stats.sem(win_DF.switch), c='black')
-ax.scatter(x=np.ones(len(win_DF)) * 0.01, y=win_DF.switch, color='blue', s=8, alpha=0.5)
+fig, ax = plt.subplots(figsize=(2,2), dpi=500)
 
-ax.set_xticks([-0.1, 0]); 
+ax.boxplot(loss_DF.switch, positions=[-0.2], 
+           widths=0.05, showfliers=True, 
+           boxprops=dict(color='black'),
+           medianprops = dict(color='red'))
 
+ax.scatter(x=np.ones(len(loss_DF)) * -0.1, y=loss_DF.switch, color='blue', s=8, alpha=0.5)
+         
+ax.boxplot(win_DF.switch, positions=[0], 
+           widths=0.05, showfliers=True, 
+           boxprops=dict(color='black'),
+           medianprops = dict(color='red'))
+ax.scatter(x=np.ones(len(win_DF)) * 0.1, y=win_DF.switch, color='blue', s=8, alpha=0.5)
+
+ax.set_xticks([-0.15, 0.05]); 
 ax.set_xticklabels(['loss','win'])
-ax.yaxis.set_ticks(np.arange(0.4, 0.7, 0.05))
-ax.set_xlim([-0.2, 0.1])
-ax.set_ylim([0.4, 0.6])
+ax.yaxis.set_ticks(np.arange(0.4, 0.7, 0.1))
+ax.set_xlim([-0.3, 0.2])
+# ax.set_ylim([0.4, 0.6])
 ax.set_ylabel('P(switch)')
 ax.set_xlabel('Previous outcome')
+
 
 # fig.savefig('fig1_stayswitch.svg')
 
