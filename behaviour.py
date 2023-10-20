@@ -319,7 +319,7 @@ mod_LR_CI = np.array([res_LR.Estimate[1:].values - res_LR['2.5_ci'][1:].values,
 fig, ax = plt.subplots(figsize=(2,2), dpi=500, sharey=True)
 ax.scatter(x=np.arange(2)-0.2, y=res_LR.Estimate[1:].values, color='black')
 ax.errorbar(x = np.arange(2)-0.2, y = res_LR.Estimate[1:].values,
-            yerr = mod_guess_CI,
+            yerr = mod_LR_CI,
              ls='none', color='black')
 ax.scatter(x = np.ones(mod_LR.fixef.shape[0]) * 0, y=mod_LR.fixef['guessLRight_L1'], color='blue', alpha=0.5)             
 ax.scatter(x = np.ones(mod_LR.fixef.shape[0]), y=mod_LR.fixef['guessLRight_L2'], color='deepskyblue', alpha=0.5 )             
