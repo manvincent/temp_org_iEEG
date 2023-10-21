@@ -1,9 +1,9 @@
 # iEEG scripts for "Temporal organized..."
 # Dependencies 
-MNE-python
-scikit-learn
-nilearn
-numpy, pandas, matplotlib
+MNE-python  
+scikit-learn  
+nilearn  
+numpy, pandas, matplotlib  
 
 # Task code
 Code to run the risk task are all in ./TaskCode  
