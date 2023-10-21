@@ -68,67 +68,43 @@ def plotModel():
     
     
     
-    #### Plottting ####     
-    fig, ax = plt.subplots(1,3, sharex=True, sharey=True, figsize=(8,3))   
+    #### Plottting #### 
+    fig, ax = plt.subplots(2,4, sharex=False, sharey=True, figsize=(12,5))   
+    # Expected risk before card 1 (constant)
+    ax[0,0].plot(card1, P0, color="green", linewidth=3, linestyle='-', label='P0')
+    ax[0,0].legend(shadow=False, fontsize=10)                 
+    ax[0,0].set_xticks([])
+
+    # E.V before card 1 (constant)     
+    ax[1,0].plot(card1, P1_risk, color="gold", linewidth=3, linestyle='-',label=r"$E.Risk_{c1}$")
+    ax[1,0].legend(shadow=False, fontsize=10)
+    ax[1,0].set_xlabel('Before Card 1')
+    ax[1,0].set_ylabel('Model Prediction')
+    ax[1,0].set_xticks([])
+
     # Expected value and uncertainty at C1
-    ax[0].plot(card1, P1, color="green", linewidth=3, label='EV')
-    ax[0].plot(card1, P1_riskPE, color="red", linewidth=3, label=r"$RiPE_{c1}$")
-    ax[0].legend(shadow=False, fontsize=10)
-    ax[0].set_xlabel('At Card 1 Onset')
-    ax[0].set_ylabel('Model Prediction')
+    ax[0,1].plot(card1, P1, color="green", linewidth=3, label='EV')
+    ax[0,1].legend(shadow=False, fontsize=10)    
+    ax[0,1].set_xticks([])
 
+    ax[1,1].plot(card1, P1_riskPE, color="red", linewidth=3, label=r"$RiPE_{c1}$")
+    ax[1,1].legend(shadow=False, fontsize=10)
+    ax[1,1].set_xlabel('At Card 1 Onset')
+  
     # E.risk before C1 
-    ax[1].plot(card1, P2_risk, color="gold", linewidth=3,label=r"$E.Risk_{c2}$")
-    ax[1].legend(shadow=False, fontsize=10)
-    ax[1].set_xlabel('At Card 1 Offset')
+    ax[1,2].plot(card1, P2_risk, color="gold", linewidth=3,label=r"$E.Risk_{c2}$")
+    ax[1,2].legend(shadow=False, loc='upper right', fontsize=10)
+    ax[1,2].set_xlabel('At Card 1 Offset')
+    
     # RPE at C2        
-    ax[2].plot(card1, P2_rpe_win, color="blue", linewidth=3)
-    ax[2].plot(card1, P2_rpe_lose, color="blue",  linestyle='--', linewidth=3 )    
-    ax[2].plot(card1, P2_riskPE_win, color="red", linewidth=3)
-    ax[2].plot(card1, P2_riskPE_lose, color="red", linestyle='--', linewidth=3)
-    ax[2].set_xlabel('At Card 2')
-        
-    # Original legend in ax[2]
-    line_RePE = plt.Line2D([], [], color='blue', linewidth=3, label=r"$RePE_{c2}$")
-    line_RiPE = plt.Line2D([], [], color='red', linewidth=3, label=r"$RiPE_{c2}$")
-    # Additional legend for win and loss
-    line_win = plt.Line2D([], [], color='grey', linewidth=3, label='win')
-    line_loss = plt.Line2D([], [], color='grey', linestyle='--', linewidth=3, label='loss')
-    ax[2].legend(handles=[line_RePE, line_RiPE, line_win, line_loss], shadow=False, fontsize=10)
+    ax[0,3].plot(card1, P2_rpe_win, color="blue", linewidth=3,  label=r"$RePE_{c2}$ | win")
+    ax[0,3].plot(card1, P2_rpe_lose, color="blue",  linestyle='--', linewidth=3,  label=r"$RePE_{c2}$ | loss" )    
+    ax[0,3].legend(shadow=False, fontsize=10)
+    ax[0,3].set_xticks([])
 
+    ax[1,3].plot(card1, P2_riskPE_win, color="red", linewidth=3, label=r"$RiPE_{c2}$ | win")
+    ax[1,3].plot(card1, P2_riskPE_lose, color="red", linestyle='--', linewidth=3, label=r"$RiPE_{c2}$ | loss")
+    ax[1,3].set_xlabel('At Card 2')
+    ax[1,3].legend(shadow=False, fontsize=10)
+    
     return(fig)
-
-
-'''
-Expanded plot
-fig, ax = plt.subplots(1,5, sharex=True, sharey=True, figsize=(12,3))
-# E.risk before C1 
-ax[0].plot(card1, P1_risk, color="gold", linewidth=3, linestyle='--',label=r"$E.Risk_{c1}$")
-ax[0].legend(shadow=False)
-ax[0].set_xlabel('Before Card 1')    
-# Expected value and uncertainty at C1
-ax[1].plot(card1, P1, color="green", linewidth=3, label='EV')
-ax[1].plot(card1, P1_riskPE, color="red", linewidth=3, label=r"$RiPE_{c1}$")
-ax[1].plot(card1, P1_obsvRisk, color="orange", linewidth=3, linestyle='--', label=r"$O.Risk_{c1}$")
-ax[1].legend(shadow=False)
-ax[1].set_xlabel('At Card 1 Onset')
-# E.risk before C1 
-ax[2].plot(card1, P2_risk, color="gold", linewidth=3, linestyle='--',label=r"$E.Risk_{c2}$")
-ax[2].legend(shadow=False)
-ax[2].set_xlabel('At Card 1 Offset')
-# RPE at C2        
-ax[3].plot(card1, P2_rpe_win, color="blue", linewidth=3, label=r"$RePE_{c2} | win$")
-ax[3].plot(card1, P2_rpe_lose, color="lightblue", linewidth=3, label=r"$RePE_{c2} | lose$")    
-ax[3].legend(shadow=False)
-ax[3].set_xlabel('At Card 2')
-
-# Uncertainty at C2 
-ax[4].plot(card1, P2_riskPE_win, color="red", linewidth=3, label=r"$RiPE_{c2} | win$")
-ax[4].plot(card1, P2_obsvRisk_win, color="orange", linewidth=3, label=r"$O.Risk_{c2} | win$")
-ax[4].plot(card1, P2_riskPE_lose, color="red", linestyle='--',linewidth=3, label=r"$RiPE_{c2} | lose$")
-ax[4].plot(card1, P2_obsvRisk_lose, color="orange", linestyle='--',linewidth=3, label=r"$O.Risk_{c2} | lose$")
-ax[4].legend(shadow=False)
-ax[4].set_xlabel('At Card 2 ')
-
-'''
-
